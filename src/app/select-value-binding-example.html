@@ -1,0 +1,25 @@
+<div class="eImpresaSelect">
+	<mat-form-field appearance="fill" >
+		<mat-label>{{Configuration.label}}</mat-label>
+		<mat-select [(value)]="TabViewModelRef.model[BindToProperty].selectedItems" [multiple]="Configuration.selectMultiple">
+
+
+		<mat-select-trigger *ngIf="Configuration.selectMultiple == true">
+      {{labelForSelect}}
+      <span *ngIf="TabViewModelRef.model[BindToProperty]?.length > 1" class="example-additional-selection">
+      (+{{TabViewModelRef.model[BindToProperty].length - 1}} {{TabViewModelRef.model[BindToProperty]?.length === 2 ? 'other' : 'others'}})
+      </span>
+    </mat-select-trigger>
+
+
+			<mat-select-trigger *ngIf="Configuration.selectMultiple==false">
+				{{TabViewModelRef.model[BindToProperty]}}
+			</mat-select-trigger>
+
+			<mat-option *ngFor="let option of TabViewModelRef.model[BindToProperty].options" value="{{option.value}}">{{option.label}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+
+<button (click)="asdf()">asdf</button>
+</div>
